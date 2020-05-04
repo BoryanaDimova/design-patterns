@@ -1,5 +1,6 @@
+package onlineFitness;
 
-public class LieDownCommand implements Command{
+public class LieDownCommand implements Instruction{
 
 	private Trainee trainee;
 	

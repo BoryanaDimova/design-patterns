@@ -1,5 +1,6 @@
+package onlineFitness;
 
-public class StandUpCommand implements Command{
+public class StandUpCommand implements Instruction{
 
 	private Trainee trainee;
 	

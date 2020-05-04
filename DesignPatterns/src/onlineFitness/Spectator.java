@@ -1,3 +1,4 @@
+package onlineFitness;
 
 public class Spectator implements Observer{
 
@@ -11,8 +12,18 @@ public class Spectator implements Observer{
 	@Override
 	public void update() {
 		// TODO Auto-generated method stub
-			String message = (String) this.trainee.getUpdate(this);
+		if(trainee == null) {
+			System.out.println("\t" + this.name + " has no trainee! ");
+			return;
+		}
 		
+			String message = (String) this.trainee.getUpdate(this);
+			
+		if(message == null) {
+			System.out.println("\t =>>>" + this.name + " cannot be updated. ");
+			return;
+		}
+			
 		System.out.println("\t =>>> Observer: " + this.name + " has been updated. " 
 		+ "The new instruction is: " + message);
 	}
