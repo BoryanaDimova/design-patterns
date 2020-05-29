@@ -19,7 +19,7 @@ public class ChatBot extends User {
 	private ChatBot(RoomMediator mediator, String name, User creator) {
 		super(mediator, name);
 		mediator.addUser(this);
-		System.out.println("The user with nickname ~" + creator.nickname + "~ added the bot in the room.");
+		System.out.println("The user with nickname ~" + creator.nickname + "~ added the bot to the room.");
 	}
 
 	public static ChatBot getInstance(RoomMediator mediator, String name, User creator) {
@@ -34,7 +34,7 @@ public class ChatBot extends User {
 		if (message.isEmpty()) {
 			return;
 		}
-		System.out.println("\tThe Bot with nickname ~" + this.nickname + "~ sent: '" + message + "'.");
+		System.out.println("\tThe Bot with nickname ~" + this.nickname + "~ says: '" + message + "'.");
 		chatRoomMediator.sendMessage(message, this);
 	}
 

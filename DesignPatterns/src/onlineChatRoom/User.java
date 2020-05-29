@@ -16,6 +16,9 @@ public abstract class User {
     
 	public void changeRoomMediator(RoomMediator mediator) {
 		this.chatRoomMediator = mediator;
-		
+	}
+	
+	public Boolean canSendMessage() {
+		return chatRoomMediator != null;
 	}
 }

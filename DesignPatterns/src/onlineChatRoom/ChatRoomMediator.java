@@ -39,7 +39,7 @@ public class ChatRoomMediator implements RoomMediator {
 	}
 
 	private void checkifShouldAddBot(String message, User user) {
-		if (!("addBot".equals(message))) {
+		if (!("addbot".equals(message.toLowerCase()))) {
 			return;
 		}
 
