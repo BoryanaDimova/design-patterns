@@ -9,7 +9,14 @@ public class ChatUser extends User {
 
 	@Override
 	public void send(String message) {
-		System.out.println("\tThe User with nickname ~" + this.nickname + "~ sent: '" + message + "'.");
+		if(chatRoomMediator == null) {
+			System.out.println("\tThe User with nickname ~" + this.nickname + "~ was removed from the chatroom and cannot send messages.");
+			return;
+		}
+		if(message.isEmpty()) {
+			return;
+		}
+		System.out.println("\tThe User with nickname ~" + this.nickname + "~ says: '" + message + "'.");
 		chatRoomMediator.sendMessage(message, this);
 
 	}
