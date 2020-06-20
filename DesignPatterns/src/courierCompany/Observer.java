@@ -2,6 +2,6 @@ package courierCompany;
 
 
 public interface Observer {
-	public void update();
-	public void setObservable(Observable observable);
+	public void update(Observable employee);
+	public void addObservable(Observable employee);
 }
