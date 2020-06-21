@@ -32,6 +32,7 @@ public abstract class Employee implements Observable {
 	@Override
 	public void setState(State state) {
 		this.state = state;
+		System.out.printf("\t-> %s changed his state to %s.\r\n", this.name, state.getStateName());
 		if(preparation == state)
 		this.notifySpectators();
 	}
