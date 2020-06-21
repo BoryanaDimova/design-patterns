@@ -5,7 +5,7 @@ public class WaitingState implements State {
 	private String stateName = "Waiting";
 	
 	@Override
-	public void applyState(Employee employee) {
+	public void applyState(Observable employee) {
 		employee.setState(this);
 
 	}

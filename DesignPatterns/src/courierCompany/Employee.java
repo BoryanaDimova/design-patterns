@@ -41,25 +41,20 @@ public abstract class Employee implements Observable {
 		this.nextEmployee = nextEmployee;
 	}
 	
-	public void takeShipment(int level) {
+	public void takeShipment(int level, String destination) {
 		
 		if(this.level <= level) {
-			// Method to consume the data passed
-			this.registerShipment();
+			this.registerShipment(destination);
 			return;
 		}
 		
 		if(this.nextEmployee != null) {
-			this.nextEmployee.takeShipment(level);
+			this.nextEmployee.takeShipment(level,destination);
 		}
 		
 	}
 	
-	protected void registerShipment() {
-		System.out.println(this.name+" registered new shipment!");
-		preparation.applyState(this);
-	}
-	
+	abstract void registerShipment(String destination);
 	
 
 	@Override
@@ -85,7 +80,6 @@ public abstract class Employee implements Observable {
 
 	@Override
 	public Object getUpdate() {
-		// TODO Auto-generated method stub
 		return this.state;
 	}
 	

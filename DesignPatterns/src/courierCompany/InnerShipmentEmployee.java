@@ -8,5 +8,11 @@ public class InnerShipmentEmployee extends Employee {
 		this.level = Employee.INNER_SHIPMENT;
 	}
 
+	@Override
+	void registerShipment(String destination) {
+		System.out.printf("%s registered new shipment for %s!\n", this.name, destination);
+		preparation.applyState(this);	
+	}
+
 
 }

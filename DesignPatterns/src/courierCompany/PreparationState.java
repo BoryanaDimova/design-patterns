@@ -5,7 +5,7 @@ public class PreparationState implements State {
 	private String stateName = "In Preparation";
 	
 	@Override
-	public void applyState(Employee employee) {
+	public void applyState(Observable employee) {
 		employee.setState(this);
 
 	}

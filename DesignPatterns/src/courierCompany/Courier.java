@@ -22,8 +22,8 @@ public class Courier implements Observer {
 	@Override
 	public void update(Observable employee) {
 	if(employees.contains(employee)) {
-		System.out.println("The courier get a shipment from  "+ employee.getName() + ".");
-		employee.setState(new WaitingState());
+		System.out.printf("The courier get a shipment from %s.\n", employee.getName());
+		new WaitingState().applyState(employee);
 	}
 
 	}

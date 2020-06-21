@@ -1,6 +1,6 @@
 package courierCompany;
 
 public interface State {
-	public void applyState(Employee employee);
+	public void applyState(Observable employee);
 	public String getStateName();
 }

@@ -10,7 +10,6 @@ public class CourierCompanyMain {
 
 	public static void main(String[] args) {
 		Employee couriers = generateChain();
-
 		
 		BufferedReader reader =  
                 new BufferedReader(new InputStreamReader(System.in)); 
@@ -23,8 +22,9 @@ public class CourierCompanyMain {
      System.out.println("For foreign country shipment press 3.");
      System.out.println("------------------------------\n\n");
      do {
-     	  System.out.print("---------------------------\n\nEnter command:");
+     	  System.out.print("Enter type of shipment:");
 	          Integer command = -1;
+	          Integer shipmentId = -1;
 	        try {
 				command = Integer.valueOf(reader.readLine());
 			} catch (IOException e) {
@@ -33,15 +33,15 @@ public class CourierCompanyMain {
 			}
 	          switch (command) {
 				case 1: {
-					couriers.takeShipment(Employee.INNER_SHIPMENT);
+					shipmentId = Employee.INNER_SHIPMENT;
 					break;
 				}
 				case 2: {
-					couriers.takeShipment(Employee.COUNTRY_SHIPMENT);
+					shipmentId = Employee.COUNTRY_SHIPMENT;
 					break;
 				}
 				case 3: {
-					couriers.takeShipment(Employee.FOREIGN_COUNTRY_SHIPMENT);
+					shipmentId = Employee.FOREIGN_COUNTRY_SHIPMENT;
 					break;
 				}
 				case 0: {
@@ -49,6 +49,8 @@ public class CourierCompanyMain {
 					break;
 				}
 			}
+	          
+	          generateShipment(reader, couriers, shipmentId);
      	
      }while(!exit);
      
@@ -84,5 +86,18 @@ public class CourierCompanyMain {
 		countryShipmentEmployee.setNextEmployee(innerShipmentEmployee);
 		
 		return foreignCountryShipmentEmployee;
+	}
+	
+	private static void generateShipment(BufferedReader reader,Employee couriers, Integer shipmentNum) {
+		 System.out.print("Enter destination:");
+         String destination = "";
+       try {
+    	   destination = reader.readLine();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+       System.out.print("\n");
+       couriers.takeShipment(shipmentNum, destination);
+       System.out.println("-------------------------------\n\n");
 	}
 }
